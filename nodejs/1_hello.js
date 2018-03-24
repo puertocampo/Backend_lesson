@@ -1,7 +1,7 @@
 // console.log('hello world');
 
 // non blocking
-//setTimeoutが終わったらfunction()を呼び出す
+//setTimeoutが終わったらfunction()を呼び出す（コールバック関数）
 //その間次の命令'world'はブロックしない
 setTimeout(function() {
     console.log('hello');
