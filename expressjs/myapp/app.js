@@ -1,14 +1,33 @@
 var express = require('express'),
     app = express();
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 //middleware
-app.use(logger());
 //public以下の静的ファイルが呼び出されると勝手に内容を表示してくれる
 app.use(express.static(__dirname+'/public'));
 app.use(function(req, res, next) {
     console.log('my custom middleware');
     next();
-})
+});
+
+app.get('/', function(req, res) {
+    res.render('index', {title: 'EJS'});
+});
+
+app.param('id', function(req, res, next, id) {
+    var users = ['taguchi', 'fkoji', 'dotinstall'];
+    req.params.name = users[id];
+    next();
+});
+
+app.get('/hello/:id', function(req, res) {
+    res.send('hello '+req.params.name);
+});
+app.get('/bye/:id', function(req, res) {
+    res.send('hello '+req.params.name);
+});
 
 /*
 app.get('/users/:name?', function(req, res) {
