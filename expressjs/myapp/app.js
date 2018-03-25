@@ -5,11 +5,21 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //middleware
+app.use(express.json());
+app.use(express.urlencoded());
 //public以下の静的ファイルが呼び出されると勝手に内容を表示してくれる
 app.use(express.static(__dirname+'/public'));
 app.use(function(req, res, next) {
     console.log('my custom middleware');
     next();
+});
+
+app.get('/new', function(req, res) {
+    res.render('new');
+});
+
+app.post('/create', function(req,res) {
+    res.send(req.body.name);
 });
 
 app.get('/', function(req, res) {
