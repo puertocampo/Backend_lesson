@@ -12,13 +12,12 @@ app.use(express.urlencoded());
 
 // routing
 app.get('/', post.index);
-/*
-app.get('/posts/new', post.new);
-app.post('posts/create', post.create);
+// app.get('/posts/new', post.new);
+// app.post('posts/create', post.create);
 app.get('/posts/:id', post.show);
-app.get('/posts/:id/edit', edit);
-app.put('/posts/:id/', post.update);
-app.delete('/posts/:id', post.destroy);
-*/
+// app.get('/posts/:id/edit', edit);
+// app.put('/posts/:id/', post.update);
+// app.delete('/posts/:id', post.destroy);
+
 app.listen(3000);
 console.log('server listening...');
