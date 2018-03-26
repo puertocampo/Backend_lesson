@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 //middleware
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.methodOverride());
+// app.use(express.methodOverride());
 
 // routing
 app.get('/', post.index);
